@@ -1,7 +1,4 @@
-// For sprockets:
-//
-//= require <json>
-//= require <socket_io>
+//= require socket_io
 
 var Juggernaut = function(options){
   this.options = options || {};
@@ -137,3 +134,6 @@ Juggernaut.Message.prototype.toJSON = function(){
   }
   return(JSON.stringify(object));
 };
+
+if (typeof module != "undefined")
+  module.exports = Juggernaut;
