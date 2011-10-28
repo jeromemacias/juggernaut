@@ -3885,5 +3885,9 @@ Juggernaut.Message.prototype.toJSON = function(){
   return(JSON.stringify(object));
 };
 
-if (typeof module != "undefined")
+if (typeof module != "undefined") {
   module.exports = Juggernaut;
+} else {
+  window.Juggernaut = Juggernaut;
+}
+;
