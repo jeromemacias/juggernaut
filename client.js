@@ -1,4 +1,4 @@
-/*! Socket.IO.js build:0.9.3, development. Copyright(c) 2011 LearnBoost <dev@learnboost.com> MIT Licensed */
+/*! Socket.IO.js build:0.9.5, development. Copyright(c) 2011 LearnBoost <dev@learnboost.com> MIT Licensed */
 
 /**
  * socket.io
@@ -23,7 +23,7 @@
    * @api public
    */
 
-  io.version = '0.9.3';
+  io.version = '0.9.5';
 
   /**
    * Protocol implemented.
@@ -1303,6 +1303,10 @@
 
     if (packet.type == 'connect' && packet.endpoint == '') {
       this.onConnect();
+    }
+
+    if (packet.type == 'error' && packet.advice == 'reconnect') {
+      this.open = false;
     }
 
     this.socket.onPacket(packet);
